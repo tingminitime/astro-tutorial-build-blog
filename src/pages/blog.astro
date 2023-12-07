@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content'
 import BlogPost from '@components/BlogPost.astro'
 import '../styles/global.css'
 import BaseLayout from '@layouts/BaseLayout.astro'
@@ -11,11 +12,15 @@ export interface PostFrontmatter {
     url: string
     alt: string
   }
-  pubDate: string
+  pubDate: Date
   tags: string[]
 }
 
-const allPosts = await Astro.glob<PostFrontmatter>('./posts/*.md')
+// Get all posts from `@pages/posts/*.md`
+// const allPosts = await Astro.glob<PostFrontmatter>('./posts/*.md')
+
+// Get all posts from `./src/content/posts/*.md`
+const allPosts = await getCollection('posts')
 
 const pageTitle = 'My Astro Learning Blog'
 ---
@@ -25,8 +30,8 @@ const pageTitle = 'My Astro Learning Blog'
     {
       allPosts.map(post => (
         <BlogPost
-          url={post.url || '/'}
-          title={post.frontmatter.title}
+          url={`/posts/${post.slug}`}
+          title={post.data.title}
         />
       ))
     }
