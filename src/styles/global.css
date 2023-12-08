@@ -41,11 +41,10 @@ h1 {
 
 .nav-links {
   width: 100%;
-  top: 5rem;
-  left: 48px;
   background-color: #ff9776;
   display: none;
   margin: 0;
+  border-bottom: 1px solid gainsboro;
 }
 
 .nav-links a {
@@ -73,8 +72,8 @@ h1 {
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
-    display: block;
+    display: flex;
+    justify-content: center;
     position: static;
     width: auto;
     background: none;

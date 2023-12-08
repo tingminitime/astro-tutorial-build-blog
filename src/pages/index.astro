@@ -8,7 +8,7 @@ const pageTitle = 'Home Page'
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
   <Greeting
-    client:load
+    client:only
     messages={['Hi', 'Hej', 'Hallo', 'Hola', 'Habari', 'Hey there', 'Yo']}
   />
 </BaseLayout>
