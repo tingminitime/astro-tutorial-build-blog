@@ -7,10 +7,8 @@ const pageTitle = 'Tag Index'
 // Get all posts from `@pages/posts/*.md`
 // const allPosts = await Astro.glob('../posts/*.md')
 
-//
 const allPosts = await getCollection('posts')
-
-console.log('[@pages/tags/index.astro] allPosts', allPosts)
+// console.log('[@pages/tags/index.astro] allPosts', allPosts)
 
 const tags = [...new Set(allPosts.flatMap(post => post.data.tags))]
 ---

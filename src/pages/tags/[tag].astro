@@ -17,12 +17,10 @@ export async function getStaticPaths() {
   const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags))]
 
   return uniqueTags.map(tag => {
-    const fileteredPosts = allPosts.filter(post =>
-      post.data.tags?.includes(tag),
-    )
+    const filteredPosts = allPosts.filter(post => post.data.tags?.includes(tag))
     return {
       params: { tag },
-      props: { posts: fileteredPosts },
+      props: { posts: filteredPosts },
     }
   })
 }
